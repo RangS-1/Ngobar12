@@ -39,7 +39,7 @@ class MuridController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(murid $murid)
+    public function show(murid $murid):View
     {
         return view('murids.show', compact('murid'));
     }
