@@ -6,5 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Murid extends Model
 {
-    //
+    use HasFactory;
+    protected $fillable = [
+        'nis',
+        'nama',
+        'rombel',
+        'rayon',
+        'alamat',
+        'no_telp',
+        'jenis_kelamin',
+    ];
 }
