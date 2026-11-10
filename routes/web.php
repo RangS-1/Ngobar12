@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Controllers\MuridController;
+use App\Http\Controllers\MuridController;
 
 Route::get('/', function () {
     return view('welcome');

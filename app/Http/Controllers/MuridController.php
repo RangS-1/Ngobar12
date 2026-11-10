@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\murid;
+use App\Models\Murid;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Http\Requests\MuridStoreRequest;

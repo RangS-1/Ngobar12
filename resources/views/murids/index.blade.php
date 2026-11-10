@@ -13,3 +13,4 @@
     2 days ago
   </div>
 </div>
+@endsection
