@@ -36,7 +36,7 @@
         <td>{{ $murid->rayon }}</td>
         <td>{{ $murid->alamat }}</td>
         <td>{{ $murid->no_telp }}</td>
-        <td>{{ $murid->jk }}</td>
+        <td>{{ $murid->jenis_kelamin }}</td>
         <td>
           <form action="{{ route('murids.destroy', $murid->id) }}" method="POST">
             <a class="btn btn-info" href="{{ route('murids.show', $murid->id) }}"><i class="fa-solid fa-list"></i> Show</a>
