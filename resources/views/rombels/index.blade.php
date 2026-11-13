@@ -14,33 +14,22 @@
     @endsection
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-      <a class="btn btn-primary" href="{{ route('murids.create') }}"><i class="fa-solid fa-plus"></i> New</a>
+      <a class="btn btn-primary" href="{{ route('rombels.create') }}"><i class="fa-solid fa-plus"></i> New</a>
     </div>
 
     <table class="table table-bordered table-striped">
       <tr>
-        <th>NIS</th>
-        <th>Nama</th>
+        <th>ID</th>
         <th>Rombel</th>
-        <th>Rayon</th>
-        <th>Alamat</th>
-        <th>No.Telp</th>
-        <th>JK</th>
-        <th>Action</th>
       </tr>
-      @forelse ($murids as $murid)
+      @forelse ($rombels as $rb)
       <tr>
-        <td>{{ $murid->nis }}</td>
-        <td>{{ $murid->nama }}</td>
-        <td>{{ $murid->rombel }}</td>
-        <td>{{ $murid->rayon }}</td>
-        <td>{{ $murid->alamat }}</td>
-        <td>{{ $murid->no_telp }}</td>
-        <td>{{ $murid->jenis_kelamin }}</td>
+        <td>{{ $rb->id }}</td>
+        <td>{{ $rb->rombel }}</td>
         <td>
-          <form action="{{ route('murids.destroy', $murid->id) }}" method="POST">
-            <a class="btn btn-info" href="{{ route('murids.show', $murid->id) }}"><i class="fa-solid fa-list"></i> Show</a>
-            <a class="btn btn-primary" href="{{ route('murids.edit', $murid->id) }}"><i class="fa-solid fa-edit"></i> Edit</a>
+          <form action="{{ route('rombels.destroy', $rb->id) }}" method="POST">
+            <a class="btn btn-info" href="{{ route('rombels.show', $rb->id) }}"><i class="fa-solid fa-list"></i> Show</a>
+            <a class="btn btn-primary" href="{{ route('rombels.edit', $rb->id) }}"><i class="fa-solid fa-edit"></i> Edit</a>
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Delete</button>

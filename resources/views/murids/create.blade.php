@@ -29,7 +29,14 @@
         </div>
         <div class="mb-3">
             <label for="inputRombel" class="form-label"><strong>Rombel:</strong></label>
-            <input type="text" name="rombel" class="form-control @error('rombel') is-invalid @enderror" id="inputRombel" placeholder="Rombel">
+            <select name="rombel" class="form-control @error('rombel') is-invalid @enderror" id="inputRombel">
+                <option value="">-- Pilih Rombel --</option>
+                @forelse ($rombels as $rb)
+                    <option value="{{ $rb->rombel }}" @selected(old('rombel') == $rb->rombel)>{{ $rb->rombel }}</option>
+                @empty
+                    <option value="" disabled>No Rombel Available</option>
+                @endforelse
+            </select>
             @error('rombel')
                 <div class="form-text text-danger">{{ $message }}</div>
             @enderror
@@ -43,7 +50,7 @@
         </div>
         <div class="mb-3">
             <label for="inputAlamat" class="form-label"><strong>Alamat:</strong></label>
-            <input type="text" name="alamat" class="form-control @error('alamat') is-invalid @enderror" id="inputAlamat" placeholder="Alamat">
+            <input type="text" name="alamat" class="form-control @error('alamat') is-invalid @enderror" id="inputAlamat" placeholder="Alamat" value="{{ old('alamat') }}">
             @error('alamat')
                 <div class="form-text text-danger">{{ $message }}</div>
             @enderror

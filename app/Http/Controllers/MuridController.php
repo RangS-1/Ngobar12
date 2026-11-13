@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Murid;
+use App\Models\Rombel;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -25,7 +26,9 @@ class MuridController extends Controller
      */
     public function create():View
     {
-        return view('murids.create');
+        $rombels = Rombel::orderBy('rombel')->get();
+
+        return view('murids.create', compact('rombels'));
     }
 
     /**

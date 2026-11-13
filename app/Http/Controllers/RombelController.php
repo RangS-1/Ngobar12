@@ -17,7 +17,7 @@ class RombelController extends Controller
      */
     public function index()
     {
-        $rombels = Murid::latest()->paginate(5);
+        $rombels = Rombel::latest()->paginate(5);
         return view('rombels.index', compact('rombels'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -32,8 +32,10 @@ class RombelController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RombelStoreRequest $request): RedirectResponse
     {
+        Rombel::create($request->validated());
+
         return redirect()->route('rombels.index')->with('success', 'Data Rombel berhasil ditambahkan.');
     }
 
@@ -66,6 +68,7 @@ class RombelController extends Controller
      */
     public function destroy(Rombel $rombel)
     {
+        $rombel->delete();
         return redirect()->route('rombels.index')->with('success', 'Data Rombel berhasil dihapus.');
     }
 }
