@@ -1,4 +1,4 @@
-@extends('murids.layout')
+@extends('layout')
 
 @section('content')
 

@@ -1,4 +1,4 @@
-@extends('murids.layout')
+@extends('layout')
 @section('content')
 <div class="card mt-3">
   <h2 class="card-header">
