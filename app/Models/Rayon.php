@@ -10,6 +10,6 @@ class Rayon extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'rombel'
+        'rayon'
     ];
 }

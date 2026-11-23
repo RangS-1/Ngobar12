@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Murid;
 use App\Models\Rombel;
+use App\Models\Rayon;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -27,8 +28,9 @@ class MuridController extends Controller
     public function create():View
     {
         $rombels = Rombel::orderBy('rombel')->get();
+        $rayons = Rayon::orderBy('rayon')->get();
 
-        return view('murids.create', compact('rombels'));
+        return view('murids.create', compact('rombels'), compact('rayons'));
     }
 
     /**

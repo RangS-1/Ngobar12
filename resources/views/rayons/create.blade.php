@@ -14,7 +14,7 @@
         @csrf
 
         <div class="mb-3">
-            <label for="inputRombel" class="form-label"><strong>Rayon:</strong></label>
+            <label for="inputRayon" class="form-label"><strong>Rayon:</strong></label>
             
             <input type="text" name="rayon" class="form-control @error('rayon') is-invalid @enderror" id="inputRayon" placeholder="Rayon">
             @error('rayon')

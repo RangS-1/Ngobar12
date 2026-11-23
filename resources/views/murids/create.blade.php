@@ -43,7 +43,14 @@
         </div>
         <div class="mb-3">
             <label for="inputRayon" class="form-label"><strong>Rayon:</strong></label>
-            <input type="text" name="rayon" class="form-control @error('rayon') is-invalid @enderror" id="inputRayon" placeholder="Rayon">
+            <select name="rayon" class="form-control @error('rayon') is-invalid @enderror" id="inputRayon">
+                <option value="">-- Pilih Rayon --</option>
+                @forelse ($rayons as $ry)
+                    <option value="{{ $ry->rayon }}" @selected(old('rayon') == $ry->rayon)>{{ $ry->rayon }}</option>
+                @empty
+                    <option value="" disabled>No Rayon Available</option>
+                @endforelse
+            </select>
             @error('rayon')
                 <div class="form-text text-danger">{{ $message }}</div>
             @enderror
