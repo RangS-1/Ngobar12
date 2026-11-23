@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Rayon;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\RayonStoreRequest;
+use App\Http\Requests\RayonUpdateRequest;
 
 class RayonController extends Controller
 {
@@ -12,7 +17,8 @@ class RayonController extends Controller
      */
     public function index()
     {
-        //
+        $rayons = Rayon::latest()->paginate(5);
+        return view('rayons.index', compact('rayons'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -20,15 +26,17 @@ class RayonController extends Controller
      */
     public function create()
     {
-        //
+        return view('rayons.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RayonStoreRequest $request): RedirectResponse
     {
-        //
+        Rayon::create($request->validated());
+
+        return redirect()->route('rayons.index')->with('success', 'Data Rayon berhasil ditambahkan.');
     }
 
     /**
@@ -36,7 +44,7 @@ class RayonController extends Controller
      */
     public function show(Rayon $rayon)
     {
-        //
+        return view('rayons.show', compact('rayon'));
     }
 
     /**
@@ -44,7 +52,7 @@ class RayonController extends Controller
      */
     public function edit(Rayon $rayon)
     {
-        //
+        return view('rayons.edit', compact('rayon'));
     }
 
     /**
@@ -52,7 +60,7 @@ class RayonController extends Controller
      */
     public function update(Request $request, Rayon $rayon)
     {
-        //
+        return redirect()->route('rayons.index')->with('success', 'Data Rayon berhasil diupdate.');
     }
 
     /**
@@ -60,6 +68,7 @@ class RayonController extends Controller
      */
     public function destroy(Rayon $rayon)
     {
-        //
+        $rayon->delete();
+        return redirect()->route('rayons.index')->with('success', 'Data Rayon berhasil dihapus.');
     }
 }
