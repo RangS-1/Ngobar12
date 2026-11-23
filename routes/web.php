@@ -9,3 +9,4 @@ Route::get('/', function () {
 });
 Route::resource('murids', MuridController::class);
 Route::resource('rombels', RombelController::class);
+Route::resource('rayons', RombelController::class);
