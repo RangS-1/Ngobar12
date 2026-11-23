@@ -25,7 +25,7 @@
       @forelse ($rayons as $ry)
       <tr>
         <td>{{ $ry->id }}</td>
-        <td>{{ $ry->rombel }}</td>
+        <td>{{ $ry->rayon }}</td>
         <td>
           <form action="{{ route('rayons.destroy', $ry->id) }}" method="POST">
             <a class="btn btn-info" href="{{ route('rayons.show', $ry->id) }}"><i class="fa-solid fa-list"></i> Show</a>

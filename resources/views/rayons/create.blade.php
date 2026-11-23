@@ -14,10 +14,10 @@
         @csrf
 
         <div class="mb-3">
-            <label for="inputRombel" class="form-label"><strong>Rombel:</strong></label>
+            <label for="inputRombel" class="form-label"><strong>Rayon:</strong></label>
             
-            <input type="text" name="rombel" class="form-control @error('rombel') is-invalid @enderror" id="inputRombel" placeholder="Rombel">
-            @error('rombel')
+            <input type="text" name="rayon" class="form-control @error('rayon') is-invalid @enderror" id="inputRayon" placeholder="Rayon">
+            @error('rayon')
                 <div class="form-text text-danger">{{ $message }}</div>
             @enderror
         </div>
