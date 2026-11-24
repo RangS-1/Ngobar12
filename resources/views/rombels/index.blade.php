@@ -21,6 +21,7 @@
       <tr>
         <th>ID</th>
         <th>Rombel</th>
+        <th>Action</th>
       </tr>
       @forelse ($rombels as $rb)
       <tr>

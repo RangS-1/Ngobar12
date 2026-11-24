@@ -20,7 +20,8 @@
     <table class="table table-bordered table-striped">
       <tr>
         <th>ID</th>
-        <th>Rombel</th>
+        <th>Rayon</th>
+        <th>Action</th>
       </tr>
       @forelse ($rayons as $ry)
       <tr>
