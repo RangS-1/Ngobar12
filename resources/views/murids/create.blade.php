@@ -74,8 +74,8 @@
             <label for="inputJenis_Kelamin" class="form-label"><strong>Jenis Kelamin:</strong></label>
             <select name="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror" id="inputJenis_Kelamin">
                 <option value="">-- Pilih Jenis Kelamin --</option>
-                <option value="Laki-Laki">Laki-Laki</option>
-                <option value="Perempuan">Perempuan</option>
+                <option value="Laki-Laki" @selected(old('jenis_kelamin') === 'Laki-Laki')>Laki-Laki</option>
+                <option value="Perempuan" @selected(old('jenis_kelamin') === 'Perempuan')>Perempuan</option>
             </select>
             @error('jenis_kelamin')
                 <div class="form-text text-danger">{{ $message }}</div>

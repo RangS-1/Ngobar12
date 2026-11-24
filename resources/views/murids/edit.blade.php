@@ -30,17 +30,19 @@
         </div>
         <div class="mb-3">
             <label for="inputRombel" class="form-label"><strong>Rombel:</strong></label>
-            <input type="text" name="rombel" value="{{ old('rombel', $murid->rombel) }}" class="form-control @error('rombel') is-invalid @enderror" id="inputRombel" placeholder="Rombel">
-            @error('rombel')
-                <div class="form-text text-danger">{{ $message }}</div>
-            @enderror
+            <select name="rombel" class="form-control @error('rombel') is-invalid @enderror" id="inputRombel">
+                @forelse ($rombels as $rb)
+                    <option value="{{ $rb->rombel }}" @selected(old('rombel') == $rb->rombel)>{{ $rb->rombel }}</option>
+                @empty
+                    <option value="" disabled>No Rombel Available</option>
+                @endforelse
+            </select>
         </div>
         <div class="mb-3">
             <label for="inputRayon" class="form-label"><strong>Rayon:</strong></label>
             <select name="rayon" class="form-control @error('rayon') is-invalid @enderror" id="inputRayon">
-                <option value="">-- Pilih Rayon --</option>
                 @forelse ($rayons as $ry)
-                    <option value="{{ $ry->rayon }}" @selected(old('rayon') == $ry->rayon)>{{ $ry->rayon }}</option>
+                    <option value="{{ $ry->rayon }}" @selected(old('rayon', $murid->rayon) == $ry->rayon)>{{ $ry->rayon }}</option>
                 @empty
                     <option value="" disabled>No Rayon Available</option>
                 @endforelse
