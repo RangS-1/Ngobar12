@@ -37,7 +37,14 @@
         </div>
         <div class="mb-3">
             <label for="inputRayon" class="form-label"><strong>Rayon:</strong></label>
-            <input type="text" name="rayon" value="{{ old('rayon', $murid->rayon) }}" class="form-control @error('rayon') is-invalid @enderror" id="inputRayon" placeholder="Rayon">
+            <select name="rayon" class="form-control @error('rayon') is-invalid @enderror" id="inputRayon">
+                <option value="">-- Pilih Rayon --</option>
+                @forelse ($rayons as $ry)
+                    <option value="{{ $ry->rayon }}" @selected(old('rayon') == $ry->rayon)>{{ $ry->rayon }}</option>
+                @empty
+                    <option value="" disabled>No Rayon Available</option>
+                @endforelse
+            </select>
             @error('rayon')
                 <div class="form-text text-danger">{{ $message }}</div>
             @enderror
@@ -52,7 +59,7 @@
         
         <div class="mb-3">
             <label for="inputNo_Telp" class="form-label"><strong>No_Telp:</strong></label>
-            <input type="text" name="no_telp" value="{{ old('no_telp', $murid->no_telp) }}" class="form-control @error('no_telp') is-invalid @enderror" id="inputNo_Telp" placeholder="No_Telp">
+            <input type="number" name="no_telp" value="{{ old('no_telp', $murid->no_telp) }}" class="form-control @error('no_telp') is-invalid @enderror" id="inputNo_Telp" placeholder="No_Telp">
             @error('no_telp')
                 <div class="form-text text-danger">{{ $message }}</div>
             @enderror

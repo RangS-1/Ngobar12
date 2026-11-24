@@ -16,7 +16,7 @@
 
         <div class="mb-3">
             <label for="inputRombel" class="form-label"><strong>Rombel:</strong></label>
-            <input type="text" name="rombel" class="form-control @error('rombel') is-invalid @enderror" id="inputRombel" placeholder="Rombel">
+            <input type="text" name="rombel" value="{{ old('rombel', $rombel->rombel) }}" class="form-control @error('rombel') is-invalid @enderror" id="inputRombel" placeholder="Rombel">
             @error('rombel')
                 <div class="form-text text-danger">{{ $message }}</div>
             @enderror
