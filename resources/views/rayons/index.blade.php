@@ -24,7 +24,7 @@
       </tr>
       @forelse ($rayons as $ry)
       <tr>
-        <td>{{ $ry->id }}</td>
+        <td>{{ $loop->iteration }}</td>
         <td>{{ $ry->rayon }}</td>
         <td>
           <form action="{{ route('rayons.destroy', $ry->id) }}" method="POST">

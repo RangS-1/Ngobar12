@@ -24,7 +24,7 @@
       </tr>
       @forelse ($rombels as $rb)
       <tr>
-        <td>{{ $rb->id }}</td>
+        <td>{{ $loop->iteration }}</td>
         <td>{{ $rb->rombel }}</td>
         <td>
           <form action="{{ route('rombels.destroy', $rb->id) }}" method="POST">
