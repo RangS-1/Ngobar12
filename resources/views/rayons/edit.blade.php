@@ -16,7 +16,7 @@
 
         <div class="mb-3">
             <label for="inputRayon" class="form-label"><strong>Rayon:</strong></label>
-            <input type="text" name="rayon" class="form-control @error('rayon') is-invalid @enderror" id="inputRayon" placeholder="Rayon">
+            <input type="text" name="rayon" value="{{ old('rayon', $rayon->rayon) }}" class="form-control @error('rayon') is-invalid @enderror" id="inputRayon" placeholder="Rayon">
             @error('rayon')
                 <div class="form-text text-danger">{{ $message }}</div>
             @enderror

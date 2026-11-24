@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rayon;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\RayonStoreRequest;
@@ -58,8 +56,10 @@ class RayonController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Rayon $rayon)
+    public function update(RayonUpdateRequest $request, Rayon $rayon): RedirectResponse
     {
+        $rayon->update($request->validated());
+
         return redirect()->route('rayons.index')->with('success', 'Data Rayon berhasil diupdate.');
     }
 

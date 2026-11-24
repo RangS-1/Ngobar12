@@ -58,8 +58,9 @@ class RombelController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Rombel $rombel)
+    public function update(RombelUpdateRequest $request, Rombel $rombel)
     {
+        $rombel->update($request->validated());
         return redirect()->route('rombels.index')->with('success', 'Data Rombel berhasil diupdate.');
     }
 
