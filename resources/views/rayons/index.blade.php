@@ -28,13 +28,32 @@
         <td>{{ $loop->iteration }}</td>
         <td>{{ $ry->rayon }}</td>
         <td>
-          <form action="{{ route('rayons.destroy', $ry->id) }}" method="POST">
-            <a class="btn btn-info" href="{{ route('rayons.show', $ry->id) }}"><i class="fa-solid fa-list"></i> Show</a>
-            <a class="btn btn-primary" href="{{ route('rayons.edit', $ry->id) }}"><i class="fa-solid fa-edit"></i> Edit</a>
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Delete</button>
-          </form>
+          <a class="btn btn-info" href="{{ route('rayons.show', $ry->id) }}"><i class="fa-solid fa-list"></i> Show</a>
+          <a class="btn btn-primary" href="{{ route('rayons.edit', $ry->id) }}"><i class="fa-solid fa-edit"></i> Edit</a>
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteRayonModal{{ $ry->id }}">
+            <i class="fa-solid fa-trash"></i> Delete
+          </button>
+          <div class="modal fade" id="deleteRayonModal{{ $ry->id }}" tabindex="-1" aria-labelledby="deleteRayonModalLabel{{ $ry->id }}" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="deleteRayonModalLabel{{ $ry->id }}">Konfirmasi Hapus Rayon</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Yakin ingin menghapus data rayon <strong>{{ $ry->rayon }}</strong>?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                  <form action="{{ route('rayons.destroy', $ry->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
         </td>
       </tr>
       @empty
