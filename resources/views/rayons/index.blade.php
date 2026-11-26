@@ -19,7 +19,7 @@
 
     <table class="table table-bordered table-striped">
       <tr>
-        <th>ID</th>
+        <th>No</th>
         <th>Rayon</th>
         <th>Action</th>
       </tr>
