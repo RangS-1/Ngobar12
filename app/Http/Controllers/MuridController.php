@@ -18,8 +18,10 @@ class MuridController extends Controller
      */
     public function index():View
     {
+        $rombels = Rombel::orderBy('rombel')->get();
+        $rayons = Rayon::orderBy('rayon')->get();
         $murids = Murid::latest()->paginate(5);
-        return view('murids.index', compact('murids'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('murids.index', compact('murids', 'rombels', 'rayons'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -38,6 +40,7 @@ class MuridController extends Controller
      */
     public function store(MuridStoreRequest $request)
     {
+        $rombels = Rombel::orderBy('rombel')->get();
         Murid::create($request->validated());
         return redirect()->route('murids.index')->with('success', 'Data Murid berhasil ditambahkan.');
     }
@@ -65,6 +68,7 @@ class MuridController extends Controller
      */
     public function update(MuridUpdateRequest $request, murid $murid):RedirectResponse
     {
+        $rombels = Rombel::orderBy('rombel')->get();
         $murid->update($request->validated());
         return redirect()->route('murids.index')->with('success', 'Data Murid berhasil diperbarui.');
     }
