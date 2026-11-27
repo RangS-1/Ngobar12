@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.apps.app')
 @section('content')
 <div class="card mt-3">
   <h2 class="card-header">
